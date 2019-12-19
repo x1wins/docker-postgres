@@ -11,33 +11,33 @@ docker-postgres gem builded for develop database enviroment
 ### Install in Gemfile
 Gemfile
 ```yaml
-gem 'docker-postgres', :git => "git://github.com/x1wins/docker-postgres.git"
+gem 'docker-postgres-rails', :git => "git://github.com/x1wins/docker-postgres-rails.git"
 ```
 
-### Or Source download and gem build 
+### Or Source download and gem build
 ```bash
-$ gem build docker-postgres.gemspec 
+$ gem build docker-postgres-rails.gemspec
 Successfully built RubyGem
-Name: docker-postgres
+Name: docker-postgres-rails
 Version: 0.0.0
-File: docker-postgres-0.0.0.gem
+File: docker-postgres-rails-0.0.0.gem
 ```
 ```bash
-$ gem install docker-postgres
-Successfully installed docker-postgres-0.0.0
-Parsing documentation for docker-postgres-0.0.0
-Done installing documentation for docker-postgres after 0 seconds
+$ gem install docker-postgres-rails
+Successfully installed docker-postgres-rails-0.0.0
+Parsing documentation for docker-postgres-rails-0.0.0
+Done installing documentation for docker-postgres-rails after 0 seconds
 1 gem installed
 ```
-Added docker-postgres in Gemfile
+Added docker-postgres-rails in Gemfile
 ```yaml
-gem 'docker-postgres'
+gem 'docker-postgres-rails'
 ```
 
 Uninstall gem
 ```bash
-$ gem uninstall docker-postgres
-Successfully uninstalled docker-postgres-0.0.0
+$ gem uninstall docker-postgres-rails
+Successfully uninstalled docker-postgres-rails-0.0.0
 ```
 
 # Usage
@@ -58,21 +58,21 @@ default: &default
 
 development:
   <<: *default
-  database: docker_postgres_development
-  username: docker_postgres
+  database: docker_postgres_rails_development
+  username: docker_postgres_rails
   password: mysecretpassword
   host: localhost
   port: 5432
 
 test:
   <<: *default
-  database: docker_postgres_test
+  database: docker_postgres_rails_test
 
 production:
   <<: *default
-  database: docker_postgres_production
-  username: docker_postgres
-  password: <%= ENV['DOCKER_POSTGRES_DATABASE_PASSWORD'] %>
+  database: docker_postgres_rails_production
+  username: docker_postgres_rails
+  password: <%= ENV['DOCKER_POSTGRES_RAILS_DATABASE_PASSWORD'] %>
 ```
 
 ### Step 2
@@ -82,14 +82,14 @@ $ rake docker:pg:init
 ```
 
 ### Step 3
-Runing dockerized PostgreSQL 
+Runing dockerized PostgreSQL
 ```bash
 $ rake docker:pg:run
 ```
 ```bash
-$ docker ps 
+$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-4ec621c7914b        postgres            "docker-entrypoint.s…"   17 minutes ago      Up 17 minutes       0.0.0.0:5432->5432/tcp   docker_postgres_development
+4ec621c7914b        postgres            "docker-entrypoint.s…"   17 minutes ago      Up 17 minutes       0.0.0.0:5432->5432/tcp   docker_postgres_rails_development
 ```
 
 ## It's all

@@ -2,7 +2,7 @@ Description:
     Explain the generator
 
 Example:
-    rails generate docker_pg Thing
+    rails generate docker_pg
 
     This will create:
-        what/will/it/create
+	lib/tasks/docker_pg.rake

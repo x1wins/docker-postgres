@@ -2,87 +2,44 @@
 We always need easy and fast database env setting for rails
 docker-postgres gem builded for develop database enviroment
 
-### Require
+## Require
 * macOS or linux (Not support window, using mkdir)
 * Installed Docker
 * database.yml in rails project (needed database, username, password, port)
 
-# Install
-### Install in Gemfile
-Gemfile
+## Getting Started
+1. Add gem in Gemfile
+```yaml
+gem 'docker-postgres-rails', '~> 0.0.1'
+```
+OR
 ```yaml
 gem 'docker-postgres-rails', :git => "git://github.com/x1wins/docker-postgres-rails.git"
 ```
+https://rubygems.org/gems/docker-postgres-rails
 
-### Or Source download and gem build
-```bash
-$ gem build docker-postgres-rails.gemspec
-Successfully built RubyGem
-Name: docker-postgres-rails
-Version: 0.0.0
-File: docker-postgres-rails-0.0.0.gem
-```
-```bash
-$ gem install docker-postgres-rails
-Successfully installed docker-postgres-rails-0.0.0
-Parsing documentation for docker-postgres-rails-0.0.0
-Done installing documentation for docker-postgres-rails after 0 seconds
-1 gem installed
-```
-Added docker-postgres-rails in Gemfile
-```yaml
-gem 'docker-postgres-rails'
-```
-
-Uninstall gem
-```bash
-$ gem uninstall docker-postgres-rails
-Successfully uninstalled docker-postgres-rails-0.0.0
-```
-
-# Usage
-### Step 0
+2. Generate docker_pg.rake
 ```bash
 rails generate docker_pg
 This will create:
   lib/tasks/docker_pg.rake
 ```
 
-### Step 1
-You must set database.yml
+3. Set database, username, password, port in database.yml, Docker will use database, username, password, port in database.yml
 ```yaml
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
   database: docker_postgres_rails_development
   username: docker_postgres_rails
   password: mysecretpassword
   host: localhost
   port: 5432
-
-test:
-  <<: *default
-  database: docker_postgres_rails_test
-
-production:
-  <<: *default
-  database: docker_postgres_rails_production
-  username: docker_postgres_rails
-  password: <%= ENV['DOCKER_POSTGRES_RAILS_DATABASE_PASSWORD'] %>
 ```
 
-### Step 2
-This command create database volume path
+4. This command create database volume path
 ```bash
 $ rake docker:pg:init
 ```
 
-### Step 3
-Runing dockerized PostgreSQL
+5. Runing dockerized PostgreSQL
 ```bash
 $ rake docker:pg:run
 ```

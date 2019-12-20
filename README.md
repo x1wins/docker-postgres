@@ -6,7 +6,7 @@ Docker-postgres-rails gem easy, fast run PostgreSql database by docker without d
 ## Required
 * Your OS must be macOS or linux (Not support window, because using mkdir)
 * Installed Docker
-* Rails project must use PostgreSql (You can build new project using postgresql by this command : $ rails new [PORJECT_NAME] -d postgresql )
+* Rails project must use PostgreSql (You can create new project using postgresql by this command : ```$ rails new [PORJECT_NAME] -d postgresql``` )
 * Your must input values of database, username, password, port in config/database.yml file (docker will use these values) 
 
 ## Getting Started
@@ -22,7 +22,7 @@ Docker-postgres-rails gem easy, fast run PostgreSql database by docker without d
 
 2. Generate docker_pg.rake
    ```bash
-   rails generate docker_pg
+   $ rails generate docker_pg
       identical  lib/tasks/docker_pg.rake
    ```
 

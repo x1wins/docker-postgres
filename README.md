@@ -21,11 +21,11 @@ https://rubygems.org/gems/docker-postgres-rails
 2. Generate docker_pg.rake
 ```bash
 rails generate docker_pg
-This will create:
-  lib/tasks/docker_pg.rake
+   identical  lib/tasks/docker_pg.rake
 ```
 
-3. Set database, username, password, port in database.yml, Docker will use database, username, password, port in database.yml
+3. Set database, username, password, port in database.yml,<br/>
+Docker will use database, username, password, port in database.yml
 ```yaml
   database: docker_postgres_rails_development
   username: docker_postgres_rails
